@@ -1,0 +1,40 @@
+#commentInfoReplyContainer {
+  width: 100%;
+  height: 45px;
+  padding-top: 0;
+  display: flex;
+}
+
+#commentInfoContainer {
+  width: 100%;
+  margin-top: 0;
+  display: flex;
+  align-items: center;
+}
+
+#userName {
+  margin: 0 20px;
+}
+
+#commentTime {
+  font-size: 14px;
+  color: #878787;
+}
+
+#replyButtonContainer {
+  display: flex;
+  background-color: transparent;
+  padding: 0;
+  border-color: transparent;
+}
+
+#replyText {
+  color: #5457b6;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}
+
+/* #userImg {
+  background-image: url(".../assets/avatars/image-amyrobson.png");
+} */

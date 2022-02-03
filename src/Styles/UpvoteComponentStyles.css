@@ -1,0 +1,47 @@
+#upvoteContainer {
+  width: 40px;
+  height: 100px;
+  margin-right: 20px;
+  background-color: #f5f6fa;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+#upvoteButton {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+#upvoteText {
+  margin: 0;
+  color: #c3c4ef;
+  font-weight: 700;
+  font-size: 20px;
+}
+
+#upvoteCount {
+  display: flex;
+  flex: 1;
+  margin: 0;
+  justify-content: center;
+  align-items: center;
+  color: #5457b6;
+  font-weight: 700;
+}
+
+#downvoteButton {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+#downvoteText {
+  margin: 0;
+  color: #c3c4ef;
+  font-weight: 700;
+  font-size: 20px;
+}
