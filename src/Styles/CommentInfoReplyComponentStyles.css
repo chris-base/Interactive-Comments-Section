@@ -12,6 +12,14 @@
   align-items: center;
 }
 
+#userImg {
+  width: 30px;
+  height: 30px;
+  background-size: 30px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
 #userName {
   margin: 0 20px;
 }
@@ -23,9 +31,20 @@
 
 #replyButtonContainer {
   display: flex;
+  align-items: center;
   background-color: transparent;
   padding: 0;
   border-color: transparent;
+  cursor: pointer;
+}
+
+#replyImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
 }
 
 #replyText {
@@ -34,7 +53,3 @@
   font-weight: 500;
   line-height: 1;
 }
-
-/* #userImg {
-  background-image: url(".../assets/avatars/image-amyrobson.png");
-} */

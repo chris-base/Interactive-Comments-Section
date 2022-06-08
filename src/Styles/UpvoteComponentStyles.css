@@ -15,11 +15,15 @@
   align-items: center;
 }
 
-#upvoteText {
+#upvoteImg {
   margin: 0;
   color: #c3c4ef;
-  font-weight: 700;
-  font-size: 20px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 #upvoteCount {
@@ -39,9 +43,13 @@
   align-items: center;
 }
 
-#downvoteText {
+#downvoteImg {
   margin: 0;
   color: #c3c4ef;
-  font-weight: 700;
-  font-size: 20px;
+  cursor: pointer;
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
 }
