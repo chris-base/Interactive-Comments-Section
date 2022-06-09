@@ -1,0 +1,48 @@
+#currUserContainer {
+  width: 650px;
+  border-radius: 10px;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+}
+
+#currentUserImg {
+  width: 40px;
+  height: 40px;
+  background-size: 40px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+#addCommentForm {
+  width: 70%;
+  border: 1px solid #eaecf1;
+  border-radius: 5px;
+  min-height: 200px;
+  cursor: text;
+  padding: 15px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#addCommentInput {
+  width: 100%;
+  outline: none;
+  border: none;
+  background-color: transparent;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+#sendCommentButton {
+  background-color: #5457b6;
+  color: white;
+  border-radius: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 12px 20px;
+  max-height: 20px;
+}
