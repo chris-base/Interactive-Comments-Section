@@ -5,6 +5,7 @@
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  margin-top: 10px;
 }
 
 #currentUserImg {
@@ -28,12 +29,15 @@
 }
 
 #addCommentInput {
-  width: 100%;
+  min-width: 100%;
+  max-width: 100%;
   outline: none;
   border: none;
   background-color: transparent;
   font-weight: 500;
   font-size: 15px;
+  word-wrap: break-word;
+  resize: none;
 }
 
 #sendCommentButton {
@@ -45,4 +49,5 @@
   align-items: center;
   padding: 12px 20px;
   max-height: 20px;
+  cursor: pointer;
 }

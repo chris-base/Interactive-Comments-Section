@@ -2,20 +2,17 @@ import "../Styles/CommentComponentStyles.css";
 import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
 
-const CommentComponent = () => {
+const CommentComponent = ({ comment, index }) => {
   return (
     <div className='commentContainer'>
       <div id='upvoteDiv'>
-        <UpvoteComponent />
+        <UpvoteComponent upvoteCount={comment.score} />
       </div>
 
       <div id='commentBody'>
-        <CommentInfoReplyComponent />
+        <CommentInfoReplyComponent commentUser={comment.user.username} commentDate={comment.createdAt} />
 
-        <p id='commentBodyText'>
-          Impressive! Though it seems the drag feature could be improved. But overall it looks incredible. You've nailed the design and the
-          responsiveness at various breakpoints works really well.
-        </p>
+        <p id='commentBodyText'>{comment.content}</p>
       </div>
     </div>
   );

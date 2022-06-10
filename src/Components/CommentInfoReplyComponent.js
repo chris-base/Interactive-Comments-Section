@@ -1,14 +1,24 @@
 import "../Styles/CommentInfoReplyComponentStyles.css";
-import amyRobson from "./assets/avatars/image-amyrobson.png";
+import amyrobson from "./assets/avatars/image-amyrobson.png";
+import juliusomo from "./assets/avatars/image-juliusomo.png";
+import maxblagun from "./assets/avatars/image-maxblagun.png";
+import ramsesmiron from "./assets/avatars/image-ramsesmiron.png";
 import replyImg from "./assets/icon-reply.svg";
 
-const CommentInfoReplyComponent = () => {
+const images = {
+  amyrobson: amyrobson,
+  juliusomo: juliusomo,
+  maxblagun: maxblagun,
+  ramsesmiron: ramsesmiron,
+};
+
+const CommentInfoReplyComponent = ({ commentUser, commentDate }) => {
   return (
     <div id='commentInfoReplyContainer'>
       <div id='commentInfoContainer'>
-        <div id='userImg' style={{ backgroundImage: "url(" + amyRobson + ")" }}></div>
-        <p id='userName'>amyrobson</p>
-        <p id='commentTime'>1 week ago</p>
+        <div id='userImg' style={{ backgroundImage: "url(" + images[`${commentUser}`] + ")" }}></div>
+        <p id='userName'>{commentUser}</p>
+        <p id='commentTime'>{commentDate}</p>
       </div>
 
       <div id='replyContainer'>

@@ -5,11 +5,11 @@ import UserSendCommentComponent from "./Components/UserSendCommentComponent";
 import data from "./data.json";
 
 function App() {
-  console.log(data);
-
   return (
     <div className='App'>
-      <CommentComponent />
+      {data.comments.map((comment, index) => {
+        return <CommentComponent comment={comment} index={index} key={index} />;
+      })}
 
       <UserSendCommentComponent />
     </div>

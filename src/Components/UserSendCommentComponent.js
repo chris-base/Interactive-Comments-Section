@@ -12,7 +12,7 @@ const UserSendCommentComponent = () => {
       <div id='currentUserImg' style={{ backgroundImage: "url(" + userImg + ")" }}></div>
 
       <form id='addCommentForm' onSubmit={() => {}} onClick={() => inputRef.current && inputRef.current.focus()}>
-        <input
+        <textarea
           id='addCommentInput'
           ref={inputRef}
           type='text'
