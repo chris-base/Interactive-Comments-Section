@@ -8,7 +8,7 @@ function App() {
   return (
     <div className='App'>
       {data.comments.map((comment, index) => {
-        return <CommentComponent comment={comment} index={index} key={index} />;
+        return <CommentComponent comment={comment} key={index} />;
       })}
 
       <UserSendCommentComponent />
