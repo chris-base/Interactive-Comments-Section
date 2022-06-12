@@ -13,12 +13,16 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+#upvoteButton:hover #upvoteImg {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(22%) saturate(2068%) hue-rotate(203deg) brightness(91%) contrast(86%);
 }
 
 #upvoteImg {
   margin: 0;
   color: #c3c4ef;
-  cursor: pointer;
   width: 15px;
   height: 15px;
   background-size: 15px;
@@ -41,12 +45,16 @@
   flex: 1;
   justify-content: center;
   align-items: center;
+  cursor: pointer;
+}
+
+#downvoteButton:hover #downvoteImg {
+  filter: brightness(0) saturate(100%) invert(36%) sepia(22%) saturate(2068%) hue-rotate(203deg) brightness(91%) contrast(86%);
 }
 
 #downvoteImg {
   margin: 0;
   color: #c3c4ef;
-  cursor: pointer;
   width: 15px;
   height: 15px;
   background-size: 15px;
