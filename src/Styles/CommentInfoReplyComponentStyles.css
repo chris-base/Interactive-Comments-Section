@@ -21,12 +21,72 @@
 }
 
 #userName {
-  margin: 0 20px;
+  margin: 0 0 0 20px;
+}
+
+#currUserTagContainer {
+  margin: 0 0 0 12px;
+  padding: 0;
+  background-color: #5457b6;
+  border-radius: 2px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#currUserTagText {
+  font-size: 15px;
+  color: white;
+  margin: 1px 5px;
 }
 
 #commentTime {
   font-size: 14px;
   color: #878787;
+  margin-left: 12px;
+}
+
+#userDeleteEditContainer {
+  display: flex;
+}
+
+#deleteButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#deleteText {
+  color: #ed6468;
+}
+
+#editButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#editImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+}
+
+#editText {
+  color: #5457b6;
+}
+
+#deleteImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
 }
 
 #replyButtonContainer {
