@@ -57,6 +57,10 @@
   margin-right: 20px;
 }
 
+#deleteButton:hover {
+  opacity: 0.5;
+}
+
 #deleteText {
   color: #ed6468;
 }
@@ -65,6 +69,10 @@
   display: flex;
   align-items: center;
   cursor: pointer;
+}
+
+#editButton:hover {
+  opacity: 0.5;
 }
 
 #editImg {
@@ -96,6 +104,10 @@
   padding: 0;
   border-color: transparent;
   cursor: pointer;
+}
+
+#replyButtonContainer:hover {
+  opacity: 0.5;
 }
 
 #replyImg {
