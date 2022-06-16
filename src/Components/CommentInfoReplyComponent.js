@@ -14,7 +14,7 @@ const images = {
   ramsesmiron: ramsesmiron,
 };
 
-const CommentInfoReplyComponent = ({ commentUser, commentDate }) => {
+const CommentInfoReplyComponent = ({ commentUser, commentDate, replyBoxOpen, setReplyBoxOpen }) => {
   return (
     <div id='commentInfoReplyContainer'>
       <div id='commentInfoContainer'>
@@ -46,7 +46,7 @@ const CommentInfoReplyComponent = ({ commentUser, commentDate }) => {
             </div>
           </div>
         ) : (
-          <div id='replyButtonContainer'>
+          <div id='replyButtonContainer' onClick={() => setReplyBoxOpen(!replyBoxOpen)}>
             <div id='replyImg' style={{ backgroundImage: "url(" + replyImg + ")" }}></div>
             <p id='replyText'>Reply</p>
           </div>

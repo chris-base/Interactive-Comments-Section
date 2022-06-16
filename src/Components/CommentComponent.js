@@ -1,8 +1,12 @@
+import { useState } from "react";
 import "../Styles/CommentComponentStyles.css";
 import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
+import UserSendCommentComponent from "./UserSendCommentComponent";
 
 const CommentComponent = ({ comment }) => {
+  const [replyBoxOpen, setReplyBoxOpen] = useState(false);
+
   return (
     <div className='mainCommentComponent' style={comment.replyingTo ? {} : {}}>
       <div className='commentContainer'>
@@ -11,7 +15,12 @@ const CommentComponent = ({ comment }) => {
         </div>
 
         <div id='commentBody'>
-          <CommentInfoReplyComponent commentUser={comment.user.username} commentDate={comment.createdAt} />
+          <CommentInfoReplyComponent
+            commentUser={comment.user.username}
+            commentDate={comment.createdAt}
+            replyBoxOpen={replyBoxOpen}
+            setReplyBoxOpen={setReplyBoxOpen}
+          />
 
           <p id='commentBodyText'>{comment.content}</p>
         </div>
@@ -34,6 +43,8 @@ const CommentComponent = ({ comment }) => {
           ) : (
             <></>
           )}
+
+          {replyBoxOpen ? <UserSendCommentComponent replyingToUser={comment.user.username} setReplyBoxOpen={setReplyBoxOpen} /> : <></>}
         </div>
       </div>
     </div>

@@ -2,10 +2,12 @@ import { useState, useRef } from "react";
 import "../Styles/UserSendCommentStyles.css";
 import userImg from "./assets/avatars/image-juliusomo.png";
 
-const UserSendCommentComponent = () => {
-  const [commentText, setCommentText] = useState("");
+const UserSendCommentComponent = ({ replyingToUser, setReplyBoxOpen }) => {
+  const [commentText, setCommentText] = useState(replyingToUser !== "" ? `@${replyingToUser}, ` : "");
 
   const inputRef = useRef(null);
+
+  console.log(commentText);
 
   return (
     <div id='currUserContainer'>
@@ -19,10 +21,20 @@ const UserSendCommentComponent = () => {
           placeholder='Add a comment...'
           onChange={(e) => setCommentText(e.target.value)}
           input={commentText}
+          value={commentText}
         />
       </form>
 
-      <div id='sendCommentButton'>SEND</div>
+      <div id='sendCancelContainer'>
+        <div id='sendCommentButton'>SEND</div>
+        {replyingToUser !== "" ? (
+          <div id='cancelCommentButton' onClick={() => setReplyBoxOpen(false)}>
+            CANCEL
+          </div>
+        ) : (
+          <></>
+        )}
+      </div>
     </div>
   );
 };
