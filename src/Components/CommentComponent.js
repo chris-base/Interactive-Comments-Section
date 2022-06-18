@@ -4,7 +4,7 @@ import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
 import UserSendCommentComponent from "./UserSendCommentComponent";
 
-const CommentComponent = ({ comment }) => {
+const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
 
   return (
@@ -37,14 +37,24 @@ const CommentComponent = ({ comment }) => {
 
         <div id='repliesCommentsContainer'>
           {comment.replies && comment.replies.length > 0 ? (
-            comment.replies.map((reply, index) => {
-              return <CommentComponent comment={reply} key={index} />;
+            comment.replies.map((reply, miniIndex) => {
+              return <CommentComponent comment={reply} forceUpdate={forceUpdate} setForceUpdate={setForceUpdate} index={index} key={miniIndex} />;
             })
           ) : (
             <></>
           )}
 
-          {replyBoxOpen ? <UserSendCommentComponent replyingToUser={comment.user.username} setReplyBoxOpen={setReplyBoxOpen} /> : <></>}
+          {replyBoxOpen ? (
+            <UserSendCommentComponent
+              replyingToUser={comment.user.username}
+              index={index}
+              setReplyBoxOpen={setReplyBoxOpen}
+              forceUpdate={forceUpdate}
+              setForceUpdate={setForceUpdate}
+            />
+          ) : (
+            <></>
+          )}
         </div>
       </div>
     </div>

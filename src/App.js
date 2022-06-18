@@ -10,7 +10,7 @@ function App() {
   return (
     <div className='App'>
       {data.comments.map((comment, index) => {
-        return <CommentComponent comment={comment} key={index} />;
+        return <CommentComponent comment={comment} forceUpdate={forceUpdate} setForceUpdate={setForceUpdate} index={index} key={index} />;
       })}
 
       <UserSendCommentComponent replyingToUser={""} forceUpdate={forceUpdate} setForceUpdate={setForceUpdate} />

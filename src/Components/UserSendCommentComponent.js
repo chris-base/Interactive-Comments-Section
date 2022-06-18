@@ -4,29 +4,59 @@ import data from "../data.json";
 import userImg from "./assets/avatars/image-juliusomo.png";
 import userImgWebp from "./assets/avatars/image-juliusomo.webp";
 
-const UserSendCommentComponent = ({ replyingToUser, setReplyBoxOpen, forceUpdate, setForceUpdate }) => {
+const UserSendCommentComponent = ({ replyingToUser, setReplyBoxOpen, forceUpdate, setForceUpdate, index }) => {
   const [commentText, setCommentText] = useState(replyingToUser !== "" ? `@${replyingToUser}, ` : "");
 
   const inputRef = useRef(null);
 
-  console.log(commentText);
+  const countDataID = () => {
+    let count = 0;
+
+    for (let i = 0; i < data.comments.length; i++) {
+      count++;
+
+      count += data.comments[i].replies.length;
+    }
+
+    return count + 1;
+  };
 
   const addCommentToData = () => {
     if (commentText.length > 1) {
-      data.comments.push({
-        id: 1,
-        content: commentText,
-        createdAt: "Today",
-        score: 0,
-        user: {
-          image: {
-            png: userImg,
-            webp: userImgWebp,
+      if (replyingToUser.length > 1) {
+        data.comments[index].replies.push({
+          id: countDataID(),
+          content: commentText,
+          createdAt: "Today",
+          score: 0,
+          replyingTo: replyingToUser,
+          user: {
+            image: {
+              png: userImg,
+              webp: userImgWebp,
+            },
+            username: data.currentUser.username,
           },
-          username: data.currentUser.username,
-        },
-        replies: [],
-      });
+        });
+
+        setReplyBoxOpen(false);
+        console.log(data.comments);
+      } else {
+        data.comments.push({
+          id: countDataID(),
+          content: commentText,
+          createdAt: "Today",
+          score: 0,
+          user: {
+            image: {
+              png: userImg,
+              webp: userImgWebp,
+            },
+            username: data.currentUser.username,
+          },
+          replies: [],
+        });
+      }
 
       setCommentText("");
       setForceUpdate(!forceUpdate);
