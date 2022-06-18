@@ -22,7 +22,10 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
             setReplyBoxOpen={setReplyBoxOpen}
           />
 
-          <p id='commentBodyText'>{comment.content}</p>
+          <p id='commentBodyText'>
+            {comment.replyingTo ? <span id='replyingToAtText'>@{comment.replyingTo} </span> : ""}
+            {comment.content}
+          </p>
         </div>
       </div>
 
@@ -48,6 +51,7 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
             <UserSendCommentComponent
               replyingToUser={comment.user.username}
               index={index}
+              replyBoxOpen={replyBoxOpen}
               setReplyBoxOpen={setReplyBoxOpen}
               forceUpdate={forceUpdate}
               setForceUpdate={setForceUpdate}

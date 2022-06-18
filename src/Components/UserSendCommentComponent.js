@@ -1,13 +1,17 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import "../Styles/UserSendCommentStyles.css";
 import data from "../data.json";
 import userImg from "./assets/avatars/image-juliusomo.png";
 import userImgWebp from "./assets/avatars/image-juliusomo.webp";
 
-const UserSendCommentComponent = ({ replyingToUser, setReplyBoxOpen, forceUpdate, setForceUpdate, index }) => {
-  const [commentText, setCommentText] = useState(replyingToUser !== "" ? `@${replyingToUser}, ` : "");
+const UserSendCommentComponent = ({ replyingToUser, replyBoxOpen, setReplyBoxOpen, forceUpdate, setForceUpdate, index }) => {
+  const [commentText, setCommentText] = useState("");
 
   const inputRef = useRef(null);
+
+  useEffect(() => {
+    inputRef.current.scrollIntoView({ behavior: "smooth", block: "center", inline: "center" });
+  }, [replyBoxOpen]);
 
   const countDataID = () => {
     let count = 0;
@@ -69,13 +73,13 @@ const UserSendCommentComponent = ({ replyingToUser, setReplyBoxOpen, forceUpdate
 
       <form id='addCommentForm' onSubmit={() => addCommentToData()} onClick={() => inputRef.current && inputRef.current.focus()}>
         <textarea
+          autoFocus={replyBoxOpen}
           id='addCommentInput'
           ref={inputRef}
           type='text'
           placeholder='Add a comment...'
           onChange={(e) => setCommentText(e.target.value)}
           input={commentText}
-          value={commentText}
         />
       </form>
 

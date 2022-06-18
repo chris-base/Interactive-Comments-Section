@@ -54,3 +54,8 @@
 #commentBodyText {
   color: #6e6e6e;
 }
+
+#replyingToAtText {
+  color: #5457b6;
+  font-weight: 700;
+}

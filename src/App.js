@@ -1,5 +1,5 @@
 import "./App.css";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import CommentComponent from "./Components/CommentComponent";
 import UserSendCommentComponent from "./Components/UserSendCommentComponent";
 import data from "./data.json";
