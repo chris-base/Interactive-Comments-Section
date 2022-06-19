@@ -85,7 +85,7 @@ const UserSendCommentComponent = ({ replyingToUser, replyBoxOpen, setReplyBoxOpe
 
       <div id='sendCancelContainer'>
         <div id='sendCommentButton' onClick={() => addCommentToData()}>
-          SEND
+          {replyingToUser.length > 0 ? "REPLY" : "SEND"}
         </div>
         {replyingToUser !== "" ? (
           <div id='cancelCommentButton' onClick={() => setReplyBoxOpen(false)}>

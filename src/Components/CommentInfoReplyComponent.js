@@ -14,7 +14,16 @@ const images = {
   ramsesmiron: ramsesmiron,
 };
 
-const CommentInfoReplyComponent = ({ commentUser, commentDate, replyBoxOpen, setReplyBoxOpen }) => {
+const CommentInfoReplyComponent = ({
+  commentUser,
+  commentDate,
+  replyBoxOpen,
+  setReplyBoxOpen,
+  setDeleteIndex,
+  setDeleteCommentVisible,
+  index,
+  miniIndex,
+}) => {
   return (
     <div id='commentInfoReplyContainer'>
       <div id='commentInfoContainer'>
@@ -35,7 +44,13 @@ const CommentInfoReplyComponent = ({ commentUser, commentDate, replyBoxOpen, set
       <div id='replyContainer'>
         {commentUser === "juliusomo" ? (
           <div id='userDeleteEditContainer'>
-            <div id='deleteButton'>
+            <div
+              id='deleteButton'
+              onClick={() => {
+                setDeleteCommentVisible(true);
+                setDeleteIndex([index, miniIndex]);
+              }}
+            >
               <div id='deleteImg' style={{ backgroundImage: "url(" + deleteImg + ")" }} />
               <p id='deleteText'>Delete</p>
             </div>

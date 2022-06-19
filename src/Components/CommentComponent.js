@@ -4,7 +4,7 @@ import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
 import UserSendCommentComponent from "./UserSendCommentComponent";
 
-const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
+const CommentComponent = ({ comment, forceUpdate, setForceUpdate, setDeleteIndex, setDeleteCommentVisible, index, miniIndex }) => {
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
 
   return (
@@ -20,6 +20,10 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
             commentDate={comment.createdAt}
             replyBoxOpen={replyBoxOpen}
             setReplyBoxOpen={setReplyBoxOpen}
+            setDeleteIndex={setDeleteIndex}
+            setDeleteCommentVisible={setDeleteCommentVisible}
+            index={index}
+            miniIndex={miniIndex}
           />
 
           <p id='commentBodyText'>
@@ -41,7 +45,18 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, index }) => {
         <div id='repliesCommentsContainer'>
           {comment.replies && comment.replies.length > 0 ? (
             comment.replies.map((reply, miniIndex) => {
-              return <CommentComponent comment={reply} forceUpdate={forceUpdate} setForceUpdate={setForceUpdate} index={index} key={miniIndex} />;
+              return (
+                <CommentComponent
+                  comment={reply}
+                  forceUpdate={forceUpdate}
+                  setForceUpdate={setForceUpdate}
+                  setDeleteIndex={setDeleteIndex}
+                  setDeleteCommentVisible={setDeleteCommentVisible}
+                  index={index}
+                  miniIndex={miniIndex}
+                  key={miniIndex}
+                />
+              );
             })
           ) : (
             <></>

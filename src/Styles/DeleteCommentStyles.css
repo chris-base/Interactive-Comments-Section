@@ -1,0 +1,66 @@
+#deleteMainBody {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  align-items: center;
+  justify-content: center;
+}
+
+#deleteCommentContainer {
+  background-color: white;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 30px;
+  width: 400px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#deleteCommentTitleText {
+  font-size: 25px;
+  margin: 0;
+  color: #67727e;
+  font-weight: 700;
+}
+
+#deleteCommentBodyText {
+  color: rgba(103, 114, 126, 0.7);
+  font-weight: 400;
+  margin: 25px 0;
+}
+
+#cancelDeleteButtonContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+#cancelDeleteButton {
+  cursor: pointer;
+  background-color: #67727e;
+  border-radius: 5px;
+  padding: 0px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+#deleteConfirmButon {
+  cursor: pointer;
+  background-color: #ed6468;
+  border-radius: 5px;
+  padding: 0px 20px;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+
+.cancelDeleteButtonText {
+  color: white;
+}
