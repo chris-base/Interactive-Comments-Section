@@ -48,7 +48,7 @@ const CommentInfoReplyComponent = ({
               id='deleteButton'
               onClick={() => {
                 setDeleteCommentVisible(true);
-                setDeleteIndex([index, miniIndex]);
+                setDeleteIndex([index, miniIndex ? miniIndex : -1]);
               }}
             >
               <div id='deleteImg' style={{ backgroundImage: "url(" + deleteImg + ")" }} />

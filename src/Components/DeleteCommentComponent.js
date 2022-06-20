@@ -1,7 +1,22 @@
 import "../Styles/DeleteCommentStyles.css";
+import data from "../data.json";
 
 const DeleteCommentComponent = ({ deleteIndex, setDeleteIndex, deleteCommentVisible, setDeleteCommentVisible }) => {
   console.log(deleteIndex);
+
+  const deleteCommentFunc = () => {
+    console.log(deleteIndex[0]);
+
+    if (deleteIndex[1] === -1) {
+      data.comments.splice(deleteIndex[0], 1);
+    } else {
+      data.comments[deleteIndex[0]].replies.splice(deleteIndex[1], 1);
+    }
+
+    setDeleteIndex([-1, -1]);
+    setDeleteCommentVisible(false);
+  };
+
   return (
     <div id='deleteMainBody' style={deleteCommentVisible ? { display: "flex" } : { display: "none" }}>
       <div id='deleteCommentContainer'>
@@ -17,7 +32,7 @@ const DeleteCommentComponent = ({ deleteIndex, setDeleteIndex, deleteCommentVisi
           >
             <p className='cancelDeleteButtonText'>NO, CANCEL</p>
           </div>
-          <div id='deleteConfirmButon'>
+          <div id='deleteConfirmButon' onClick={() => deleteCommentFunc()}>
             <p className='cancelDeleteButtonText'>YES, DELETE</p>
           </div>
         </div>

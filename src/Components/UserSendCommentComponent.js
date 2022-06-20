@@ -80,6 +80,7 @@ const UserSendCommentComponent = ({ replyingToUser, replyBoxOpen, setReplyBoxOpe
           placeholder='Add a comment...'
           onChange={(e) => setCommentText(e.target.value)}
           input={commentText}
+          value={commentText}
         />
       </form>
 
