@@ -21,6 +21,8 @@ const CommentInfoReplyComponent = ({
   setReplyBoxOpen,
   setDeleteIndex,
   setDeleteCommentVisible,
+  editCommentActive,
+  setEditCommentActive,
   index,
   miniIndex,
 }) => {
@@ -48,14 +50,14 @@ const CommentInfoReplyComponent = ({
               id='deleteButton'
               onClick={() => {
                 setDeleteCommentVisible(true);
-                setDeleteIndex([index, miniIndex ? miniIndex : -1]);
+                setDeleteIndex([index, miniIndex || miniIndex === 0 ? miniIndex : -1]);
               }}
             >
               <div id='deleteImg' style={{ backgroundImage: "url(" + deleteImg + ")" }} />
               <p id='deleteText'>Delete</p>
             </div>
 
-            <div id='editButton'>
+            <div id='editButton' onClick={() => setEditCommentActive(!editCommentActive)}>
               <div id='editImg' style={{ backgroundImage: "url(" + editImg + ")" }} />
               <p id='editText'>Edit</p>
             </div>

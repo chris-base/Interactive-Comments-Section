@@ -19,41 +19,6 @@
   background-position: center;
 }
 
-#addCommentForm {
-  width: 70%;
-  border: 1px solid #eaecf1;
-  border-radius: 5px;
-  min-height: 120px;
-  cursor: text;
-}
-
-#addCommentInput {
-  min-width: 100%;
-  max-width: 100%;
-  min-height: 100%;
-  max-height: 100%;
-  outline: none;
-  border: none;
-  border-radius: 5px;
-  font-weight: 500;
-  font-size: 15px;
-  word-wrap: break-word;
-  resize: none;
-  line-height: 1.5;
-  padding: 15px;
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-}
-
-#addCommentInput:focus {
-  outline: 1px solid rgba(0, 0, 0, 0.5);
-}
-
-#addCommentInput:hover {
-  outline: 1px solid rgba(0, 0, 0, 0.5);
-}
-
 #sendCommentButton {
   background-color: #5457b6;
   color: white;

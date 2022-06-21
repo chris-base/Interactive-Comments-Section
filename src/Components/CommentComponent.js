@@ -3,9 +3,21 @@ import "../Styles/CommentComponentStyles.css";
 import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
 import UserSendCommentComponent from "./UserSendCommentComponent";
+import AddEditCommentFormComponent from "./AddEditCommentFormComponent";
 
 const CommentComponent = ({ comment, forceUpdate, setForceUpdate, setDeleteIndex, setDeleteCommentVisible, index, miniIndex }) => {
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
+  const [editCommentActive, setEditCommentActive] = useState(false);
+
+  const [commentText, setCommentText] = useState(comment.content);
+
+  const updateComment = () => {
+    if (commentText.length > 1) {
+      comment.content = commentText;
+
+      setEditCommentActive(false);
+    }
+  };
 
   return (
     <div className='mainCommentComponent' style={comment.replyingTo ? {} : {}}>
@@ -22,14 +34,25 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, setDeleteIndex
             setReplyBoxOpen={setReplyBoxOpen}
             setDeleteIndex={setDeleteIndex}
             setDeleteCommentVisible={setDeleteCommentVisible}
+            editCommentActive={editCommentActive}
+            setEditCommentActive={setEditCommentActive}
             index={index}
             miniIndex={miniIndex}
           />
 
-          <p id='commentBodyText'>
-            {comment.replyingTo ? <span id='replyingToAtText'>@{comment.replyingTo} </span> : ""}
-            {comment.content}
-          </p>
+          {editCommentActive ? (
+            <div id='updateCommentContainer'>
+              <AddEditCommentFormComponent addingComment={false} replyBoxOpen={true} commentText={commentText} setCommentText={setCommentText} />
+              <div id='updateCommentButton' onClick={() => updateComment()}>
+                <p id='updateCommentButtonText'>UPDATE</p>
+              </div>
+            </div>
+          ) : (
+            <p id='commentBodyText'>
+              {comment.replyingTo ? <span id='replyingToAtText'>@{comment.replyingTo} </span> : ""}
+              {comment.content}
+            </p>
+          )}
         </div>
       </div>
 
