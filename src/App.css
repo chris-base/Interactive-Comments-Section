@@ -9,6 +9,18 @@
   padding: 50px 15%;
 }
 
+@media (min-width: 1400px) {
+  .App {
+    padding: 50px 30%;
+  }
+}
+
+@media (max-width: 750px) {
+  .App {
+    padding: 50px 1%;
+  }
+}
+
 /* .App-logo {
   height: 40vmin;
   pointer-events: none;

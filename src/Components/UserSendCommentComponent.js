@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../Styles/UserSendCommentStyles.css";
 import AddEditCommentFormComponent from "./AddEditCommentFormComponent";
 import data from "../data.json";
@@ -7,6 +7,12 @@ import userImgWebp from "./assets/avatars/image-juliusomo.webp";
 
 const UserSendCommentComponent = ({ replyingToUser, replyBoxOpen, setReplyBoxOpen, forceUpdate, setForceUpdate, index }) => {
   const [commentText, setCommentText] = useState("");
+  const [clientWidth, setClientWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeWindow = () => setClientWidth(window.innerWidth);
+    window.addEventListener("resize", resizeWindow);
+  });
 
   const countDataID = () => {
     let count = 0;
@@ -63,22 +69,33 @@ const UserSendCommentComponent = ({ replyingToUser, replyBoxOpen, setReplyBoxOpe
   };
 
   return (
-    <div id='currUserContainer'>
-      <div id='currentUserImg' style={{ backgroundImage: "url(" + userImg + ")" }}></div>
+    <div div id='currUserContainer'>
+      {clientWidth < 750 ? (
+        <AddEditCommentFormComponent addingComment={true} replyBoxOpen={replyBoxOpen} commentText={commentText} setCommentText={setCommentText} />
+      ) : (
+        <></>
+      )}
+      <div id='currUserContainerImgSend'>
+        <div id='currentUserImg' style={{ backgroundImage: "url(" + userImg + ")" }}></div>
 
-      <AddEditCommentFormComponent addingComment={true} replyBoxOpen={replyBoxOpen} commentText={commentText} setCommentText={setCommentText} />
-
-      <div id='sendCancelContainer'>
-        <div id='sendCommentButton' onClick={() => addCommentToData()}>
-          {replyingToUser.length > 0 ? "REPLY" : "SEND"}
-        </div>
-        {replyingToUser !== "" ? (
-          <div id='cancelCommentButton' onClick={() => setReplyBoxOpen(false)}>
-            CANCEL
-          </div>
+        {clientWidth > 750 ? (
+          <AddEditCommentFormComponent addingComment={true} replyBoxOpen={replyBoxOpen} commentText={commentText} setCommentText={setCommentText} />
         ) : (
           <></>
         )}
+
+        <div id='sendCancelContainer'>
+          <div id='sendCommentButton' onClick={() => addCommentToData()}>
+            {replyingToUser.length > 0 ? "REPLY" : "SEND"}
+          </div>
+          {replyingToUser !== "" ? (
+            <div id='cancelCommentButton' onClick={() => setReplyBoxOpen(false)}>
+              CANCEL
+            </div>
+          ) : (
+            <></>
+          )}
+        </div>
       </div>
     </div>
   );

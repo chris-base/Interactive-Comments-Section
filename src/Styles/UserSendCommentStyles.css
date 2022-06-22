@@ -52,3 +52,21 @@
 #cancelCommentButton:hover {
   opacity: 0.5;
 }
+
+#currUserContainerImgSend {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+@media (max-width: 750px) {
+  #currUserContainer {
+    flex-direction: column;
+  }
+
+  #currUserContainerImgSend {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+  }
+}
