@@ -1,0 +1,79 @@
+#userDeleteEditContainer {
+  display: flex;
+}
+
+#deleteButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+#deleteButton:hover {
+  opacity: 0.5;
+}
+
+#deleteText {
+  color: #ed6468;
+}
+
+#editButton {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+#editButton:hover {
+  opacity: 0.5;
+}
+
+#editImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+}
+
+#editText {
+  color: #5457b6;
+}
+
+#deleteImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+}
+
+#replyButtonContainer {
+  display: flex;
+  align-items: center;
+  background-color: transparent;
+  padding: 0;
+  border-color: transparent;
+  cursor: pointer;
+}
+
+#replyButtonContainer:hover {
+  opacity: 0.5;
+}
+
+#replyImg {
+  width: 15px;
+  height: 15px;
+  background-size: 15px;
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-right: 10px;
+}
+
+#replyText {
+  color: #5457b6;
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+}

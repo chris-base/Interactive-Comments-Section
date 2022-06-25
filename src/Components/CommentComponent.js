@@ -1,15 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "../Styles/CommentComponentStyles.css";
 import UpvoteComponent from "./UpvoteComponent";
 import CommentInfoReplyComponent from "./CommentInfoReplyComponent";
 import UserSendCommentComponent from "./UserSendCommentComponent";
 import AddEditCommentFormComponent from "./AddEditCommentFormComponent";
+import ReplyButtonComponent from "./ReplyButtonComponent";
 
 const CommentComponent = ({ comment, forceUpdate, setForceUpdate, setDeleteIndex, setDeleteCommentVisible, index, miniIndex }) => {
   const [replyBoxOpen, setReplyBoxOpen] = useState(false);
   const [editCommentActive, setEditCommentActive] = useState(false);
-
   const [commentText, setCommentText] = useState(comment.content);
+  const [clientWidth, setClientWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeWindow = () => setClientWidth(window.innerWidth);
+    window.addEventListener("resize", resizeWindow);
+  });
 
   const updateComment = () => {
     if (commentText.length > 1) {
@@ -24,6 +30,22 @@ const CommentComponent = ({ comment, forceUpdate, setForceUpdate, setDeleteIndex
       <div className='commentContainer'>
         <div id='upvoteDiv'>
           <UpvoteComponent upvoteCount={comment.score} />
+
+          {clientWidth < 750 && !editCommentActive ? (
+            <ReplyButtonComponent
+              commentUser={comment.user.username}
+              replyBoxOpen={replyBoxOpen}
+              setReplyBoxOpen={setReplyBoxOpen}
+              setDeleteIndex={setDeleteIndex}
+              setDeleteCommentVisible={setDeleteCommentVisible}
+              editCommentActive={editCommentActive}
+              setEditCommentActive={setEditCommentActive}
+              index={index}
+              miniIndex={miniIndex}
+            />
+          ) : (
+            <></>
+          )}
         </div>
 
         <div id='commentBody'>

@@ -2,11 +2,7 @@ import "../Styles/DeleteCommentStyles.css";
 import data from "../data.json";
 
 const DeleteCommentComponent = ({ deleteIndex, setDeleteIndex, deleteCommentVisible, setDeleteCommentVisible }) => {
-  console.log(deleteIndex);
-
   const deleteCommentFunc = () => {
-    console.log(deleteIndex[0]);
-
     if (deleteIndex[1] === -1) {
       data.comments.splice(deleteIndex[0], 1);
     } else {

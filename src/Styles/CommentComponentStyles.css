@@ -82,3 +82,14 @@
 #updateCommentButton:hover {
   opacity: 0.5;
 }
+
+@media (max-width: 750px) {
+  .commentContainer {
+    flex-direction: column-reverse;
+  }
+
+  #upvoteDiv {
+    display: flex;
+    justify-content: space-between;
+  }
+}

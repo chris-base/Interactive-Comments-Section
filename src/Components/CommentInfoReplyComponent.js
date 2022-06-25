@@ -1,11 +1,10 @@
+import { useState, useEffect } from "react";
 import "../Styles/CommentInfoReplyComponentStyles.css";
 import amyrobson from "./assets/avatars/image-amyrobson.png";
 import juliusomo from "./assets/avatars/image-juliusomo.png";
 import maxblagun from "./assets/avatars/image-maxblagun.png";
 import ramsesmiron from "./assets/avatars/image-ramsesmiron.png";
-import replyImg from "./assets/icon-reply.svg";
-import deleteImg from "./assets/icon-delete.svg";
-import editImg from "./assets/icon-edit.svg";
+import ReplyButtonComponent from "./ReplyButtonComponent";
 
 const images = {
   amyrobson: amyrobson,
@@ -26,6 +25,13 @@ const CommentInfoReplyComponent = ({
   index,
   miniIndex,
 }) => {
+  const [clientWidth, setClientWidth] = useState(window.innerWidth);
+
+  useEffect(() => {
+    const resizeWindow = () => setClientWidth(window.innerWidth);
+    window.addEventListener("resize", resizeWindow);
+  });
+
   return (
     <div id='commentInfoReplyContainer'>
       <div id='commentInfoContainer'>
@@ -43,32 +49,21 @@ const CommentInfoReplyComponent = ({
         <p id='commentTime'>{commentDate}</p>
       </div>
 
-      <div id='replyContainer'>
-        {commentUser === "juliusomo" ? (
-          <div id='userDeleteEditContainer'>
-            <div
-              id='deleteButton'
-              onClick={() => {
-                setDeleteCommentVisible(true);
-                setDeleteIndex([index, miniIndex || miniIndex === 0 ? miniIndex : -1]);
-              }}
-            >
-              <div id='deleteImg' style={{ backgroundImage: "url(" + deleteImg + ")" }} />
-              <p id='deleteText'>Delete</p>
-            </div>
-
-            <div id='editButton' onClick={() => setEditCommentActive(!editCommentActive)}>
-              <div id='editImg' style={{ backgroundImage: "url(" + editImg + ")" }} />
-              <p id='editText'>Edit</p>
-            </div>
-          </div>
-        ) : (
-          <div id='replyButtonContainer' onClick={() => setReplyBoxOpen(!replyBoxOpen)}>
-            <div id='replyImg' style={{ backgroundImage: "url(" + replyImg + ")" }}></div>
-            <p id='replyText'>Reply</p>
-          </div>
-        )}
-      </div>
+      {clientWidth > 750 ? (
+        <ReplyButtonComponent
+          commentUser={commentUser}
+          replyBoxOpen={replyBoxOpen}
+          setReplyBoxOpen={setReplyBoxOpen}
+          setDeleteIndex={setDeleteIndex}
+          setDeleteCommentVisible={setDeleteCommentVisible}
+          editCommentActive={editCommentActive}
+          setEditCommentActive={setEditCommentActive}
+          index={index}
+          miniIndex={miniIndex}
+        />
+      ) : (
+        <></>
+      )}
     </div>
   );
 };
