@@ -37,7 +37,7 @@ Users should be able to:
 
 ### Links
 
-- Solution URL: [Solution](https://www.frontendmentor.io/solutions/interactive-comments-section-uXUdJdOmyz)
+- Solution URL: [Solution](https://www.frontendmentor.io/solutions/interactive-comments-section-i3F0UuJURW)
 - Live Site URL: [Live Site](https://chris-base.github.io/Interactive-Comments-Section/)
 
 ## My process
